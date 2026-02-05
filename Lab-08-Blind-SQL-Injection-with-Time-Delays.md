@@ -5,25 +5,26 @@
 **Difficulty:** Practitioner
 
 ## 1. Objective
-The goal was to exfiltrate the administrative password from a PostgreSQL database that provided zero visual feedback (no changes in page content, status codes, or error messages). 
+The goal was to confirm a time-based vulnerability and exfiltrate the `administrator` password from a PostgreSQL database. Unlike standard blind SQLi, this database provides no visual feedback or error messages; exfiltration must be measured in the temporal dimension.
 
 ## 2. Discovery & Dialect Fingerprinting
-To determine the database type, I tested common time-delay syntax for various SQL dialects:
-- **Microsoft SQL Server Test:** I injected `'; IF (1=1) WAITFOR DELAY '0:0:10'--`. The server responded instantly, indicating the logic was not executed.
-- **PostgreSQL Test:** I injected `' || pg_sleep(10)--`. This triggered a significant delay, confirming the backend was PostgreSQL.
+To identify the backend database, I performed "Dialect Probing" by testing sleep functions for different SQL environments:
+- **Microsoft SQL Server Test:** `'; IF (1=1) WAITFOR DELAY '0:0:10'--`. Result: Instant response (Failed).
+- **PostgreSQL Test:** `' || pg_sleep(10)--`. Result: **10,000ms+ delay (Confirmed PostgreSQL)**.
 
-## 3. Exploitation (Temporal Interrogation)
-Since the database was "silent," I used a `CASE` statement to force a 3-second delay whenever a character guess was correct. 
+## 3. Exploitation (Temporal Brute-force)
+Once the dialect was confirmed, I used a `CASE` statement to automate character extraction via Burp Intruder.
 
-### Final Payload:
+### Extraction Payload:
 `' || (SELECT CASE WHEN (username='administrator' AND SUBSTR(password,§1§,1)='§a§') THEN pg_sleep(3) ELSE pg_sleep(0) END FROM users)--`
 
-### Intruder Configuration:
-- **Attack Type:** Cluster Bomb (Position vs. Character set).
-- **Resource Pool:** Limited to **1 concurrent request** to prevent network jitter and ensure "temporal clarity" for each guess.
-- **The Signal:** I monitored the **"Response received"** column. Correct guesses resulted in a ~3,000ms+ response time (the delay executed twice due to application architecture), while incorrect guesses returned in <200ms.
+### Execution Strategy:
+- **Attack Type:** Cluster Bomb.
+- **Resource Pool:** Limited to **1 concurrent request** to ensure network jitter did not interfere with the 3000ms/6000ms "True" signals.
+- **Verification:** Correct character guesses were identified by sorting the **"Response received"** column in Intruder.
 
 ## 4. Final Result
-- **Data Recovered:** 20-character administrator password.
-- **Methodology:** Successfully leveraged "Temporal Exfiltration" when all other data channels were "Void."
+- **Data Recovered:** 20-character password.
+- **Verification:** Successfully logged into the `administrator` account. 
+- **Trigger:** The lab officially marked as solved upon successful execution of the confirmed `pg_sleep(10)` signature.
 - **Status:** **LAB SOLVED**
