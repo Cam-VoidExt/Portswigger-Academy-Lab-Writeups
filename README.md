@@ -1,26 +1,34 @@
-# PortSwigger Web Security Academy - SQL Injection Labs
+# 🛡️ PortSwigger Academy Lab Writeups
 
-This repository documents my progress through the PortSwigger Web Security Academy SQL Injection labs. Each report includes the methodology, specific payloads used, and remediation recommendations.
+This repository documents my progression through the PortSwigger Web Security Academy. It serves as a technical log of vulnerability discovery, exploitation, and defensive remediation strategies.
 
-## Lab Progress Summary
+## 📊 SQL Injection Progress
 
-| Lab # | Lab Name | Report Link |
+| Lab | Vulnerability Description | Writeup Link |
 | :--- | :--- | :--- |
-| 01 | SQL injection vulnerability in WHERE clause allowing retrieval of hidden data | [View Report](./Lab-01-SQL-injection-vulnerability-in-WHERE-clause-allowing-retrieval-of-hidden-data.md) |
-| 02 | SQL injection vulnerability allowing login bypass | [View Report](./Lab-02-SQL-injection-vulnerability-allowing-login-bypass.md) |
-| 03 | SQL injection UNION attack, determining the number of columns returned by the query | [View Report](./Lab-03-SQL-injection-UNION-attack-determining-the-number-of-columns-returned-by-the-query.md) |
-| 04 | SQL injection UNION attack, finding a column containing text | [View Report](./Lab-04-SQL-injection-UNION-attack-finding-a-column-containing-text.md) |
-| 05 | SQL injection UNION attack, retrieving data from other tables | [View Report](./Lab-05-SQL-injection-UNION-attack-retrieving-data-from-other-tables.md) |
-| 06 | SQL injection UNION attack, retrieving multiple values in a single column | [View Report](./Lab-06-SQL-injection-UNION-attack-retrieving-multiple-values-in-a-single-column.md) |
-| 07 | Blind SQL injection with conditional responses | [View Report](./Lab-07-Blind-SQL-injection-with-conditional-responses.md) |
-| 08 | Blind SQL injection with time delays and information retrieval | [View Report](./Lab-08-Blind-SQL-injection-with-time-delays-and-information-retrieval.md) |
-| 09 | Blind SQL injection with out-of-band interaction | [View Report](./Lab-09-Blind-SQL-injection-with-out-of-band-interaction.md) |
-| 10 | SQL injection attack, listing the database contents on non-Oracle databases | [View Report](./Lab-10-SQL-injection-listing-database-contents-non-oracle.md) |
-
-## Tools Used
-* **Burp Suite Community Edition** (Proxy, Repeater, Intruder)
-* **Interact.sh** (OAST Listener for Blind/Out-of-band testing)
-* **FoxyProxy** (Browser proxy management)
+| **01** | WHERE clause retrieval of hidden data | [View Report](./Lab-01-SQL-injection-vulnerability-in-WHERE-clause-allowing-retrieval-of-hidden-data.md) |
+| **02** | Authentication bypass via SQLi | [View Report](./Lab-02-SQL-injection-vulnerability-allowing-login-bypass.md) |
+| **03** | UNION attack: Determining column count | [View Report](./Lab-03-SQL-injection-UNION-attack-determining-the-number-of-columns-returned-by-the-query.md) |
+| **04** | UNION attack: String concatenation | [View Report](./Lab-04-SQLi-Union-Concatenation.md) |
+| **05** | Blind SQLi: Conditional responses | [View Report](./Lab-05-Blind-SQL-Injection-with-Conditional-Responses.md) |
+| **06** | Blind SQLi: Conditional errors | [View Report](./Lab-06-Blind-SQL-Injection-with-Conditional-Errors.md) |
+| **07** | Visible error-based SQLi | [View Report](./Lab-07-Visible-Error-Based-SQLi.md) |
+| **08** | Blind SQLi: Time delays | [View Report](./Lab-08-Blind-SQL-Injection-with-Time-Delays.md) |
+| **09** | Time delays with information retrieval | [View Report](./Lab-09-Blind-SQL-injection-with-time-delays-and-information-retrieval.md) |
+| **10** | Out-of-band (OAST) interaction | [View Report](./Lab-10-Blind-SQL-injection-with-out-of-band-interaction.md) |
+| **11** | Database schema mapping (Non-Oracle) | [View Report](./Lab-11-SQL-injection-listing-database-contents-non-oracle.md) |
 
 ---
-*Note: This repository is for educational purposes as part of a 14-day cybersecurity sprint.*
+
+## 🛠️ Toolset
+* **Burp Suite Community Edition** (Proxy, Repeater, Intruder)
+* **Interact.sh** (Open-source OAST listener)
+* **FoxyProxy** (Browser proxy management)
+
+## 🎯 Project Goals
+* Complete 100% of SQL Injection labs within a 14-day sprint.
+* Document automated exfiltration techniques via Python.
+* Implement professional-grade remediation advice for all identified vulnerabilities.
+
+---
+*Disclaimer: This repository is strictly for educational purposes.*
