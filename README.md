@@ -19,6 +19,7 @@ This repository documents my progression through the PortSwigger Web Security Ac
 | **11** | Database schema mapping (Non-Oracle) | [View Report](./Lab-11-SQL-injection-listing-database-contents-non-oracle.md) |
 | **12** | Database type and version (Oracle) | [View Report](./Lab-12-SQL-injection-querying-database-type-and-version-on-oracle.md) |
 | **14** | Database schema mapping (Oracle) | [View Report](./Lab-14-SQL-injection-listing-database-contents-on-oracle.md) |
+| **15** | Filter bypass via XML encoding | [View Report](./Lab-15-SQL-injection-with-filter-bypass-via-xml-encoding.md) |
 ---
 
 ## 🛠️ Toolset
