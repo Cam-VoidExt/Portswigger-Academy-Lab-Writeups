@@ -17,7 +17,7 @@ This repository documents my progression through the PortSwigger Web Security Ac
 | **09** | Time delays with information retrieval | [View Report](./Lab-09-Blind-SQL-injection-with-time-delays-and-information-retrieval.md) |
 | **10** | Out-of-band (OAST) interaction | [View Report](./Lab-10-Blind-SQL-injection-with-out-of-band-interaction.md) |
 | **11** | Database schema mapping (Non-Oracle) | [View Report](./Lab-11-SQL-injection-listing-database-contents-non-oracle.md) |
-
+| **12** | Database type and version (Oracle) | [View Report](./Lab-12-SQL-injection-querying-database-type-and-version-on-oracle.md) |
 ---
 
 ## 🛠️ Toolset
